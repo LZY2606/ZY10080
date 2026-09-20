@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>动作分段对齐工作台</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <h1>动作分段对齐工作台</h1>
+    <div id="toolbar">
+      <button id="btn-seed">加载演示数据</button>
+      <button id="btn-align-b">为研究者B生成候选</button>
+      <button id="btn-export">导出 JSON</button>
+      <button id="btn-refresh">刷新</button>
+      <span id="video-info"></span>
+    </div>
+  </header>
+  <div id="alert" class="hidden"></div>
+  <main id="board" class="hidden">
+    <section id="columns"></section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

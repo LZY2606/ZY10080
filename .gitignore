@@ -34,3 +34,10 @@ coverage/
 .vite/
 .turbo/
 *.tsbuildinfo
+
+# --- 项目自身 ---
+data/
+!gradle/wrapper/
+!gradle/wrapper/**
+!gradlew
+!gradlew.bat

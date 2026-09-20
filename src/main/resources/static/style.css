@@ -1,0 +1,35 @@
+* { box-sizing: border-box; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; margin: 0; background: #f4f5f7; color: #222; }
+header { background: #1f2933; color: #fff; padding: 12px 20px; }
+header h1 { font-size: 18px; margin: 0 0 8px; }
+#toolbar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+button { background: #3b82f6; color: #fff; border: 0; border-radius: 6px; padding: 6px 12px; cursor: pointer; font-size: 13px; }
+button:hover { background: #2563eb; }
+button.secondary { background: #64748b; }
+button.danger { background: #dc2626; }
+button:disabled { background: #9ca3af; cursor: not-allowed; }
+#video-info { font-size: 12px; color: #cbd5e1; }
+#alert { margin: 12px 20px 0; padding: 10px 14px; border-radius: 6px; font-size: 13px; white-space: pre-wrap; }
+#alert.error { background: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; }
+#alert.info { background: #dcfce7; color: #166534; border: 1px solid #86efac; }
+.hidden { display: none; }
+#columns { display: flex; gap: 14px; padding: 14px 20px; align-items: flex-start; overflow-x: auto; }
+.column { background: #fff; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,.1); min-width: 260px; flex: 1; }
+.column h2 { font-size: 14px; margin: 0; padding: 10px 12px; border-bottom: 1px solid #e5e7eb; background: #f8fafc; border-radius: 8px 8px 0 0; }
+.column .body { padding: 10px 12px; display: flex; flex-direction: column; gap: 8px; }
+.card { border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 10px; font-size: 13px; }
+.card .bounds { font-family: ui-monospace, monospace; font-size: 12px; color: #475569; }
+.card .bounds .fuzzy { color: #b45309; }
+.card .text { margin: 4px 0; font-weight: 600; }
+.card .meta { font-size: 11px; color: #94a3b8; }
+.card .actions { margin-top: 6px; display: flex; gap: 6px; flex-wrap: wrap; }
+.card .actions button { padding: 3px 8px; font-size: 12px; }
+.card.gap { border-style: dashed; background: #fffbeb; }
+.card.undecidable { background: #f1f5f9; }
+.card.inactive { opacity: .55; }
+.badge { display: inline-block; font-size: 10px; padding: 1px 6px; border-radius: 8px; margin-left: 6px; }
+.badge.exact { background: #dcfce7; color: #166534; }
+.badge.fuzzy { background: #fef3c7; color: #92400e; }
+.badge.gap { background: #fee2e2; color: #991b1b; }
+.badge.status { background: #e0e7ff; color: #3730a3; }
+.merge-bar { padding: 8px 12px; border-top: 1px solid #e5e7eb; }
