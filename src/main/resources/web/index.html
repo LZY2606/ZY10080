@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>多源动作片段对齐工作台</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <h1>多源动作片段对齐工作台</h1>
+    <div class="hint">所有判定（锚点解析、候选生成、冲突检测）均在服务端完成；时间一律回指原始帧标识。</div>
+  </header>
+
+  <section class="panel" id="import-panel">
+    <h2>1. 导入</h2>
+    <div class="row">
+      <button id="btn-demo">载入演示数据（VFR + 模糊区间 + 多研究者）</button>
+      <button id="btn-refresh">刷新状态</button>
+      <label>容差帧数 <input id="tolerance" type="number" value="2" min="0" style="width:5em"></label>
+      <label>姿态算法
+        <select id="pose-select"><option value="">（不绑定姿态）</option></select>
+      </label>
+      <button id="btn-align">生成候选对齐</button>
+    </div>
+    <div class="row">
+      <details>
+        <summary>手动导入 JSON（帧表 / 来源片段 / 姿态）</summary>
+        <textarea id="import-json" rows="10" placeholder="选择类型后粘贴 JSON"></textarea>
+        <div class="row">
+          <select id="import-kind">
+            <option value="frame-table">帧表 POST /api/import/frame-table</option>
+            <option value="segments">来源片段 POST /api/import/segments</option>
+            <option value="pose">姿态关键点 POST /api/import/pose</option>
+          </select>
+          <button id="btn-import">导入</button>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>2. 并排时间轴</h2>
+    <div id="timeline-scroll">
+      <div id="ruler"></div>
+      <div id="tracks"></div>
+    </div>
+    <div class="legend">
+      <span class="sw src"></span>来源层（原文不改）
+      <span class="sw fuzzy"></span>模糊起止范围
+      <span class="sw cons"></span>共识层
+      <span class="sw gap"></span>无法判断/缺口
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>3. 候选对齐与缺口</h2>
+    <div id="candidates"></div>
+  </section>
+
+  <section class="panel">
+    <h2>4. 共识片段</h2>
+    <div id="consensus-list"></div>
+  </section>
+
+  <section class="panel">
+    <h2>5. 导出 / 重导入</h2>
+    <div class="row">
+      <button id="btn-export">导出 JSON 包（层次/精度/证据）</button>
+      <button id="btn-reimport">在新库重放当前导出包（需空数据目录）</button>
+    </div>
+    <textarea id="export-area" rows="8" placeholder="导出内容会显示在这里"></textarea>
+  </section>
+
+  <div id="toast"></div>
+  <script src="/app.js"></script>
+</body>
+</html>
